@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      admin_user: 管理者
+      comment: コメント
+      group: 創作グループ
+      member: 創活部員
+    attributes:
+      admin_user:
+        email: メールアドレス
+        current_sign_in_at: 最終ログイン日時
+        sign_in_count: ログイン回数
+        created_at: 作成日時
+      group:
+        name: 創作グループ名
+        description: 説明
+      member:
+        name: 氏名（本名）
+        kana: 氏名かな
+        line_name: LINE表示名
+        student_number: 学籍番号
+        skill: できること・スキル
+        description: 自己紹介

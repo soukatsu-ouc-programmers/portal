@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_id: one
+  day_of_week_id: one
+  block_time_id: one
+
+two:
+  member_id: two
+  day_of_week_id: two
+  block_time_id: two
