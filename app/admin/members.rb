@@ -47,7 +47,7 @@ ActiveAdmin.register Member do
 			f.input :description
 
 			f.has_many :group_members, heading: '所属グループ', allow_destroy: true, new_record: true do |group_member|
-				group_member.input :member_id,
+				group_member.input :group_id,
 					label: '',
 					as: :select,
 					collection: Group.all.map {

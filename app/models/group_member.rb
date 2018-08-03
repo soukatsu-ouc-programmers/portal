@@ -1,6 +1,6 @@
 class GroupMember < ApplicationRecord
 
-	belongs_to :member, foreign_key: 'id'
-	belongs_to :group, foreign_key: 'id'
+	belongs_to :member
+	belongs_to :group
 
 end
