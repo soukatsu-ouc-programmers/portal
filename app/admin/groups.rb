@@ -29,6 +29,8 @@ ActiveAdmin.register Group do
 			# TODO: メンバーの #show へ入るリンクを追加したい
 		end
 
+		# TODO: 時間割テーブル上にメンバーの空き合致率に応じて記号もしくはセルの塗りつぶしを行う
+
 		# コメント機能を無効にしているので使えない
 		# active_admin_comments
 	end
@@ -40,7 +42,7 @@ ActiveAdmin.register Group do
 
 			f.has_many :group_members, heading: '所属メンバー', allow_destroy: true, new_record: true do |group_member|
 				group_member.input :member_id,
-					label: '',
+					label: 'メンバー名',
 					as: :select,
 					collection: Member.all.map {
 						|member|
