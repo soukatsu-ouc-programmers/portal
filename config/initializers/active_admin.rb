@@ -298,26 +298,20 @@ ActiveAdmin.setup do |config|
 
 
 
-  # 時間割テーブル
-  # module ActiveAdmin
-  #   module Views
-  #     class TableFor
+  # 時間割テーブルの行スタイルを定義
+  module ActiveAdmin
+    module Views
+      class AttributesTable
 
-  #       def koma_column(attribute)
-  #         column(attribute) { |model|
-  #           model[attribute] ? "〇" : ""
-  #         }
-  #       end
+        def koma_row(attribute)
+          row(attribute) { |model|
+            model[attribute] ? "〇" : ""
+          }
+        end
 
-  #       def koma_row(attribute)
-  #         row(attribute) { |model|
-  #           model[attribute] ? "〇" : ""
-  #         }
-  #       end
-
-  #     end
-  #   end
-  # end
+      end
+    end
+  end
 
 
 end

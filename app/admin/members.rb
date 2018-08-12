@@ -41,6 +41,11 @@ ActiveAdmin.register Member do
 		end
 
 		# TODO: 時間割テーブルを表示させる
+		panel '空きコマ' do
+			attributes_table do(BlockTime.all.order(:order)) do
+
+			end
+		end
 
 		# コメント機能を無効にしているので使えない
 		# active_admin_comments
@@ -87,5 +92,6 @@ ActiveAdmin.register Member do
 
 		actions
 	end
+
 
 end
