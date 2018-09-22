@@ -2,8 +2,8 @@ ActiveAdmin.register Member do
 
 	# 編集権限を与える
 	permit_params :name, :kana, :line_name, :student_number, :skill, :description,
-		group_members_attributes: [:id, :member_id, :group_id, :reference, :_destroy],
-		member_idles_attributes: [:id, :member_id, :day_of_week_id, :block_time_id]
+		group_members_attributes: [:member_id, :group_id, :_destroy],
+		member_idles_attributes: [:member_id, :day_of_week_id, :block_time_id, :_destroy]
 
 
 	index do
@@ -29,7 +29,7 @@ ActiveAdmin.register Member do
 		actions
 	end
 
-	show do |group|
+	show do
 		attributes_table(*member.class.columns.collect {
 			|column|
 			column.name.to_sym
@@ -40,11 +40,11 @@ ActiveAdmin.register Member do
 			# TODO: グループの #show へ入るリンクを追加したい
 		end
 
-		# TODO: 時間割テーブルを表示させる
+		# 時間割テーブル: テンプレートを使って表示
 		panel '空きコマ' do
-			attributes_table do(BlockTime.all.order(:order)) do
-
-			end
+			render partial: "member_schedule", locals: {
+				this_member: member
+			}
 		end
 
 		# コメント機能を無効にしているので使えない
@@ -76,21 +76,15 @@ ActiveAdmin.register Member do
 				member_idle.input :day_of_week_id,
 					label: '曜日',
 					as: :select,
-					collection: DayOfWeek.all.order(:order).map {
-						|day_of_week|
-						[day_of_week.name, day_of_week.id]
-					}
+					collection: DayOfWeek.all
 				member_idle.input :block_time_id,
 					label: '時間帯',
 					as: :select,
-					collection: BlockTime.order(:order).all.map {
-						|block_time|
-						[block_time.name, block_time.id]
-					}
+					collection: BlockTime.order(:order).all
 			end
 		end
 
-		actions
+		f.actions
 	end
 
 

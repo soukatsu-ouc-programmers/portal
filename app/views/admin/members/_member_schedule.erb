@@ -1,0 +1,25 @@
+
+<% day_of_weeks = DayOfWeek.all %>
+<% block_times = BlockTime.all %>
+<table>
+  <tr>
+    <th>コマ / 曜日</th>
+<% day_of_weeks.each do |dow| %>
+    <th><%= dow.name %></th>
+<% end %>
+  </tr>
+
+<% block_times.each do |bt| %>
+  <tr>
+    <th><%= bt.name %></th>
+<%   day_of_weeks.each do |dow| %>
+<%     if MemberIdle.find_by(member_id: this_member.id , day_of_week_id: dow.id, block_time_id: bt.id) == nil then %>
+    <td>---</td>
+<%     else %>
+    <td>空き</td>
+<%     end %>
+<%   end %>
+  </tr>
+<% end %>
+
+</table>

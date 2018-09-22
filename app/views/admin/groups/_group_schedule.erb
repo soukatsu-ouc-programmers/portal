@@ -1,0 +1,37 @@
+
+<% day_of_weeks = DayOfWeek.all %>
+<% block_times = BlockTime.all %>
+<table>
+  <tr>
+    <th>コマ / 曜日</th>
+<% day_of_weeks.each do |dow| %>
+    <th><%= dow.name %></th>
+<% end %>
+  </tr>
+
+<% block_times.each do |bt| %>
+  <tr>
+    <th><%= bt.name %></th>
+<%   day_of_weeks.each do |dow|
+	   # このコマで参加可能なメンバー人数を調べる
+	   ok_members = MemberIdle.where(
+         member_id: this_members.pluck(:id),
+         day_of_week_id: dow.id,
+         block_time_id: bt.id
+       )
+	   ratio = ok_members.count.to_f / this_members.count
+
+       if ratio < 0.5 then %>
+    <td>×</td>
+<%     elsif ratio < 0.8 then %>
+    <td>△</td>
+<%     elsif ratio < 1.0 %>
+    <td>〇</td>
+<%     else %>
+    <td>◎</td>
+<%     end %>
+<%   end %>
+  </tr>
+<% end %>
+
+</table>

@@ -12,8 +12,8 @@ DayOfWeek.create(name: "火", order: 2)
 DayOfWeek.create(name: "水", order: 3)
 DayOfWeek.create(name: "木", order: 4)
 DayOfWeek.create(name: "金", order: 5)
-DayOfWeek.create(name: "土", order: 6)
-DayOfWeek.create(name: "日", order: 7)
+# DayOfWeek.create(name: "土", order: 6)
+# DayOfWeek.create(name: "日", order: 7)
 
 # 時間割のコマ
 BlockTime.create(name: '１講(08:50-10:20)', order: 1)
