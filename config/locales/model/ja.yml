@@ -5,7 +5,7 @@ ja:
       comment: コメント
       group: 創作グループ
       member: 創活部員
-      group_member: 所属メンバー
+      group_member: 所属グループメンバー
       member_idle: 空きコマ
     attributes:
       admin_user:
