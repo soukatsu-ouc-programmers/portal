@@ -5,7 +5,7 @@
   <tr>
     <th>コマ / 曜日</th>
 <% day_of_weeks.each do |dow| %>
-    <th><%= dow.name %></th>
+    <th class="schedule-cell"><%= dow.name %></th>
 <% end %>
   </tr>
 
@@ -19,17 +19,20 @@
          day_of_week_id: dow.id,
          block_time_id: bt.id
        )
-	   ratio = ok_members.count.to_f / this_members.count
+       ratio = ok_members.count.to_f / this_members.count
 
-       if ratio < 0.5 then %>
-    <td>×</td>
-<%     elsif ratio < 0.8 then %>
-    <td>△</td>
-<%     elsif ratio < 1.0 %>
-    <td>〇</td>
+       if ratio < 0.50 then %>
+    <td class="schedule-cell group-schedule-bad">×
+<%     elsif ratio < 0.75 then %>
+    <td class="schedule-cell group-schedule-good">△
+<%     elsif ratio < 1.00 %>
+    <td class="schedule-cell group-schedule-better">〇
 <%     else %>
-    <td>◎</td>
+    <td class="schedule-cell group-schedule-best">◎
 <%     end %>
+      &nbsp; (<%= (ratio * 100).to_i %> %)
+    </td>
+
 <%   end %>
   </tr>
 <% end %>

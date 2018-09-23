@@ -2,7 +2,7 @@ ActiveAdmin.register Group do
 
 	# 編集権限を与える
 	permit_params :name, :description,
-		group_members_attributes: [:member_id, :group_id, :_destroy]
+		group_members_attributes: [:id, :member_id, :group_id, :_destroy]
 
 
 	index do

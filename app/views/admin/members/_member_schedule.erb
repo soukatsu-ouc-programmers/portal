@@ -5,7 +5,7 @@
   <tr>
     <th>コマ / 曜日</th>
 <% day_of_weeks.each do |dow| %>
-    <th><%= dow.name %></th>
+    <th class="schedule-cell"><%= dow.name %></th>
 <% end %>
   </tr>
 
@@ -14,9 +14,9 @@
     <th><%= bt.name %></th>
 <%   day_of_weeks.each do |dow| %>
 <%     if MemberIdle.find_by(member_id: this_member.id , day_of_week_id: dow.id, block_time_id: bt.id) == nil then %>
-    <td>---</td>
+    <td class="schedule-cell">---</td>
 <%     else %>
-    <td>空き</td>
+    <td class="schedule-cell">空き</td>
 <%     end %>
 <%   end %>
   </tr>

@@ -2,8 +2,8 @@ ActiveAdmin.register Member do
 
 	# 編集権限を与える
 	permit_params :name, :kana, :line_name, :student_number, :skill, :description,
-		group_members_attributes: [:member_id, :group_id, :_destroy],
-		member_idles_attributes: [:member_id, :day_of_week_id, :block_time_id, :_destroy]
+		group_members_attributes: [:id, :member_id, :group_id, :_destroy],
+		member_idles_attributes: [:id, :member_id, :day_of_week_id, :block_time_id, :_destroy]
 
 
 	index do

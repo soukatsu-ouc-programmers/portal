@@ -1,0 +1,27 @@
+
+
+/** 時間割テーブル */
+// 曜日ヘッダー
+.schedule-cell {
+	text-align: center;
+}
+
+// 全員OK
+td.group-schedule-best {
+	background: #00ff00aa;
+}
+
+// ほぼ全員OK
+td.group-schedule-better {
+	background: #00ff0066;
+}
+
+// ある程度OK
+td.group-schedule-good {
+	background: #00ff0033;
+}
+
+// ほぼ全滅
+td.group-schedule-bad {
+	background: #ff000077;
+}
