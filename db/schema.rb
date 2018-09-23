@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2018_07_24_155045) do
     t.integer "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    # t.index [:group_id, :member_id], :unique => true
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(version: 2018_07_24_155045) do
     t.integer "block_time_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    # t.index [:member_id, :day_of_week_id, :block_time_id], :unique => true
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
