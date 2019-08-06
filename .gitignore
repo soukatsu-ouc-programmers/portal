@@ -1,4 +1,5 @@
 .vscode
+app/controllers/application_controller.rb
 config/database.yml
 config/database.yml.save
 config/credentials.yml.enc
