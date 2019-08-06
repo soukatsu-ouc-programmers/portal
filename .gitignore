@@ -1,3 +1,4 @@
 .vscode
 config/database.yml
+config/database.yml.save
 config/credentials.yml.enc
